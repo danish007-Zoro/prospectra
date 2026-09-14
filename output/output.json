@@ -1,0 +1,91 @@
+{
+  "https://postman.com": {
+    "domain": "https://postman.com",
+    "status": "success",
+    "intelligence": {
+      "company_overview": "Postman is an API platform for building and using APIs. Postman simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.",
+      "target_audience": "Engineers, API teams, and enterprises seeking to design, govern, and scale APIs.",
+      "contact_points": [
+        {
+          "email": "info@postman.com",
+          "source_url": "https://postman.com/company/about-postman/"
+        },
+        {
+          "email": "info-jp@postman.com",
+          "source_url": "https://postman.com/company/about-postman/"
+        }
+      ],
+      "key_leadership": [
+        {
+          "name": "Abhinav Asthana",
+          "role": "CEO and co-founder",
+          "linkedin_url": "https://www.linkedin.com/in/abhinavasthana/",
+          "source_url": "https://postman.com/company/about-postman/"
+        },
+        {
+          "name": "Ankit Sobti",
+          "role": "co-founder",
+          "linkedin_url": "https://www.linkedin.com/in/ankit-sobti/",
+          "source_url": "https://postman.com/company/about-postman/"
+        },
+        {
+          "name": "Abhijit Kane",
+          "role": "co-founder",
+          "linkedin_url": "https://in.linkedin.com/in/abhijitkane",
+          "source_url": "https://postman.com/company/about-postman/"
+        }
+      ],
+      "confidence_score": 0.9
+    },
+    "usage": {
+      "input_tokens": 6991,
+      "output_tokens": 791,
+      "total_tokens": 7782,
+      "estimated_cost_usd": 0.000762
+    },
+    "error": null
+  },
+  "https://supabase.com": {
+    "domain": "https://supabase.com",
+    "status": "success",
+    "intelligence": {
+      "company_overview": "Supabase is a fully managed Postgres platform that provides authentication, real-time data, edge functions, storage, and vector search to build production‑ready applications in minutes. It serves developers, AI builders, startups, and enterprises looking for secure, scalable backend infrastructure.",
+      "target_audience": "Developers, AI builders, and innovation teams building AI‑powered applications and scalable backend infrastructure for startups, agencies, and enterprises.",
+      "contact_points": [],
+      "key_leadership": [],
+      "confidence_score": 0.8
+    },
+    "usage": {
+      "input_tokens": 6717,
+      "output_tokens": 571,
+      "total_tokens": 7288,
+      "estimated_cost_usd": 0.000675
+    },
+    "error": null
+  },
+  "https://vapi.ai": {
+    "domain": "https://vapi.ai",
+    "status": "success",
+    "intelligence": {
+      "company_overview": "Vapi is a unified platform that enables builders to create, deploy, and improve voice agents quickly. It provides orchestration, real‑time monitoring, and enterprise‑grade configurability for scalable voice solutions.",
+      "target_audience": "Enterprises and organizations of all sizes that require scalable, enterprise‑grade voice agent solutions.",
+      "contact_points": [],
+      "key_leadership": [
+        {
+          "name": "Jason Mitura",
+          "role": "VP of Software Development",
+          "linkedin_url": "https://www.linkedin.com/in/jasonmitura/",
+          "source_url": "https://vapi.ai"
+        }
+      ],
+      "confidence_score": 0.82
+    },
+    "usage": {
+      "input_tokens": 2469,
+      "output_tokens": 695,
+      "total_tokens": 3164,
+      "estimated_cost_usd": 0.000394
+    },
+    "error": null
+  }
+}
