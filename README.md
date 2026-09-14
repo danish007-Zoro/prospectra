@@ -349,7 +349,7 @@ output/output.json
 
 The automated test suite is intentionally designed to run without making external browser or LLM calls.
 
-The current test suite contains **37 automated tests, all passing**.
+The current test suite contains **41 automated tests, all passing**.
 
 ```text
 37 passed
