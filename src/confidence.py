@@ -53,13 +53,24 @@ def calculate_confidence(
     evidence verification, and page coverage.
     """
 
-    total_extracted = total_contacts + total_members
-    total_verified = verified_contacts + verified_members
+    verification_scores = []
 
-    if total_extracted == 0:
-        verification_score = 1.0
+    if total_contacts > 0:
+        verification_scores.append(
+            verified_contacts / total_contacts
+        )
+
+    if total_members > 0:
+        verification_scores.append(
+            verified_members / total_members
+        )
+
+    if verification_scores:
+        verification_score = sum(verification_scores) / len(
+            verification_scores
+        )
     else:
-        verification_score = total_verified / total_extracted
+        verification_score = 0.0
 
     final_score = (
         (llm_confidence * 0.50)

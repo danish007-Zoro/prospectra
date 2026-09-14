@@ -30,13 +30,35 @@ def run_agent(domains: list[str]) -> dict[str, CompanyResult]:
             print(f"\nProcessing: {domain}")
 
             try:
-                intelligence, pages, usage = process_company(
+                intelligence, pages, usage, navigation_usage = process_company(
                     manager,
                     domain,
                 )
 
-                input_tokens = usage.prompt_tokens
-                output_tokens = usage.completion_tokens
+                navigation_input_tokens = sum(
+                    item.prompt_tokens
+                    for item in navigation_usage
+                )
+
+                navigation_output_tokens = sum(
+                    item.completion_tokens
+                    for item in navigation_usage
+                )
+
+                input_tokens = (
+                    navigation_input_tokens
+                    + usage.prompt_tokens
+                )
+
+                output_tokens = (
+                    navigation_output_tokens
+                    + usage.completion_tokens
+                )
+
+                total_tokens = (
+                    input_tokens
+                    + output_tokens
+                )
 
                 estimated_cost = calculate_llm_cost(
                     input_tokens,
@@ -45,7 +67,7 @@ def run_agent(domains: list[str]) -> dict[str, CompanyResult]:
 
                 print(
                     f"LLM usage: {input_tokens} input + "
-                    f"{output_tokens} output = {usage.total_tokens} total tokens"
+                    f"{output_tokens} output = {total_tokens} total tokens"
                 )
 
                 print(
@@ -102,7 +124,7 @@ def run_agent(domains: list[str]) -> dict[str, CompanyResult]:
                     usage=LLMUsage(
                         input_tokens=input_tokens,
                         output_tokens=output_tokens,
-                        total_tokens=usage.total_tokens,
+                        total_tokens=total_tokens,
                         estimated_cost_usd=estimated_cost,
                     ),
                     error=None,

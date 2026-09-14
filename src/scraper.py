@@ -87,11 +87,11 @@ def get_page_type(url: str) -> str:
         ("careers", "careers"),
         ("press-media", "press"),
         ("team", "team"),
+        ("about", "about"),
+        ("contact", "contact"),
         ("customers", "customers"),
         ("company", "company"),
         ("solutions", "solutions"),
-        ("about", "about"),
-        ("contact", "contact"),
     ]
 
     for pattern, page_type in page_patterns:

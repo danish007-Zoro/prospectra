@@ -4,7 +4,7 @@
     "status": "success",
     "intelligence": {
       "company_overview": "Postman is an API platform for building and using APIs. Postman simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.",
-      "target_audience": "Engineers, API teams, and enterprises seeking to design, govern, and scale APIs.",
+      "target_audience": "Developers and organizations building, testing, and managing APIs.",
       "contact_points": [
         {
           "email": "info@postman.com",
@@ -18,8 +18,8 @@
       "key_leadership": [
         {
           "name": "Abhinav Asthana",
-          "role": "CEO and co-founder",
-          "linkedin_url": "https://www.linkedin.com/in/abhinavasthana/",
+          "role": "CEO & co-founder",
+          "linkedin_url": "https://www.linkedin.com/in/abhinavasthana",
           "source_url": "https://postman.com/company/about-postman/"
         },
         {
@@ -31,17 +31,17 @@
         {
           "name": "Abhijit Kane",
           "role": "co-founder",
-          "linkedin_url": "https://in.linkedin.com/in/abhijitkane",
+          "linkedin_url": "https://www.linkedin.com/in/abhinavasthana/",
           "source_url": "https://postman.com/company/about-postman/"
         }
       ],
-      "confidence_score": 0.9
+      "confidence_score": 0.88
     },
     "usage": {
-      "input_tokens": 6991,
-      "output_tokens": 791,
-      "total_tokens": 7782,
-      "estimated_cost_usd": 0.000762
+      "input_tokens": 5722,
+      "output_tokens": 2434,
+      "total_tokens": 8156,
+      "estimated_cost_usd": 0.001159
     },
     "error": null
   },
@@ -49,17 +49,24 @@
     "domain": "https://supabase.com",
     "status": "success",
     "intelligence": {
-      "company_overview": "Supabase is a fully managed Postgres platform that provides authentication, real-time data, edge functions, storage, and vector search to build production‑ready applications in minutes. It serves developers, AI builders, startups, and enterprises looking for secure, scalable backend infrastructure.",
-      "target_audience": "Developers, AI builders, and innovation teams building AI‑powered applications and scalable backend infrastructure for startups, agencies, and enterprises.",
+      "company_overview": "Supabase is an open‑source, Postgres‑based developer platform that provides authentication, realtime, storage, RESTful APIs, and edge functions. It is built by developers for developers and is available for self‑hosting or through a managed subscription.",
+      "target_audience": "Developers, startups, and enterprises building SaaS, AI, and web or mobile applications that need scalable backend infrastructure.",
       "contact_points": [],
-      "key_leadership": [],
-      "confidence_score": 0.8
+      "key_leadership": [
+        {
+          "name": "Tracy Lane",
+          "role": "General Counsel of Supabase, Inc.",
+          "linkedin_url": "https://www.linkedin.com/in/tracy-lane-5baa7023",
+          "source_url": "https://supabase.com/contact-us"
+        }
+      ],
+      "confidence_score": 0.75
     },
     "usage": {
-      "input_tokens": 6717,
-      "output_tokens": 571,
-      "total_tokens": 7288,
-      "estimated_cost_usd": 0.000675
+      "input_tokens": 12727,
+      "output_tokens": 2188,
+      "total_tokens": 14915,
+      "estimated_cost_usd": 0.001611
     },
     "error": null
   },
@@ -67,8 +74,8 @@
     "domain": "https://vapi.ai",
     "status": "success",
     "intelligence": {
-      "company_overview": "Vapi is a unified platform that enables builders to create, deploy, and improve voice agents quickly. It provides orchestration, real‑time monitoring, and enterprise‑grade configurability for scalable voice solutions.",
-      "target_audience": "Enterprises and organizations of all sizes that require scalable, enterprise‑grade voice agent solutions.",
+      "company_overview": "Vapi offers an enterprise‑grade platform that lets developers build, deploy, and manage voice agents at scale. It provides orchestration, real‑time monitoring, and compliance features for Fortune 100 and other organizations.",
+      "target_audience": "Small to large enterprises and organizations that need scalable, compliant voice agent solutions for customer support and interaction.",
       "contact_points": [],
       "key_leadership": [
         {
@@ -78,13 +85,13 @@
           "source_url": "https://vapi.ai"
         }
       ],
-      "confidence_score": 0.82
+      "confidence_score": 0.8
     },
     "usage": {
-      "input_tokens": 2469,
-      "output_tokens": 695,
-      "total_tokens": 3164,
-      "estimated_cost_usd": 0.000394
+      "input_tokens": 9650,
+      "output_tokens": 2540,
+      "total_tokens": 12190,
+      "estimated_cost_usd": 0.001486
     },
     "error": null
   }

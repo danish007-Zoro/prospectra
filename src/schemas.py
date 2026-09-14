@@ -52,6 +52,13 @@ class LLMUsage(BaseModel):
     total_tokens: int
     estimated_cost_usd: float
 
+class NavigationDecision(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    action: Literal["visit_page", "finish"]
+    target_url: str | None
+    reason: str
+
 class ProcessingError(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -64,6 +71,6 @@ class CompanyResult(BaseModel):
     model_config = ConfigDict(extra="forbid")
     domain: str
     status: Literal["success", "failed"]
-    intelligence: CompanyIntelligence | None
-    usage: LLMUsage | None
-    error: ProcessingError | None
+    intelligence: CompanyIntelligence | None = None
+    usage: LLMUsage | None = None
+    error: ProcessingError | None = None

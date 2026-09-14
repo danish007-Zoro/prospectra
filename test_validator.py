@@ -1,61 +1,96 @@
-from src.browser import BrowserManager
-from src.scraper import scrape_relevant_pages
+from src.scraper import PageEvidence
 from src.schemas import CompanyIntelligence
-from src.validator import validate_contact_points
-from src.validator import verify_team_member
+from src.validator import (
+    validate_contact_points,
+    verify_team_member,
+)
 
 
-manager = BrowserManager()
+def create_test_pages():
+    return [
+        PageEvidence(
+            url="https://example.com/contact",
+            content=(
+                "Contact us at info@example.com "
+                "for general enquiries."
+            ),
+            page_type="contact",
+        ),
+        PageEvidence(
+            url="https://example.com/about",
+            content=(
+                "Abhinav Sharma is the Chief Executive Officer "
+                "and co-founder of Example Company."
+            ),
+            page_type="about",
+        ),
+    ]
 
-try:
-    manager.start()
 
-    pages = scrape_relevant_pages(
-        manager,
-        "https://postman.com",
-    )
+def test_validate_contact_points():
+    pages = create_test_pages()
 
     intelligence = CompanyIntelligence(
         company_overview="Test company.",
         target_audience="Developers.",
         contact_points=[
             {
-                "email": "info@postman.com",
-                "source_url": "https://postman.com/company/contact-us/",
+                "email": "info@example.com",
+                "source_url": "https://example.com/contact",
             },
             {
-                "email": "fake@postman.com",
-                "source_url": "https://postman.com/company/contact-us/",
+                "email": "fake@example.com",
+                "source_url": "https://example.com/contact",
             },
         ],
         key_leadership=[],
         confidence_score=0.5,
     )
 
-    unverified = validate_contact_points(
+    total, verified, unverified = validate_contact_points(
         intelligence,
         pages,
     )
 
-    print(f"Unverified emails: {unverified}")
+    assert total == 2
+    assert verified == 1
+    assert unverified == ["fake@example.com"]
 
-finally:
-    manager.close()
+
+def test_verify_team_member_accepts_matching_name_and_role():
+    pages = create_test_pages()
+
+    result = verify_team_member(
+        pages,
+        "Abhinav Sharma",
+        "Chief Executive Officer",
+        "https://example.com/about",
+    )
+
+    assert result is True
 
 
-real_leader = verify_team_member(
-    pages,
-    "Abhinav Asthana",
-    "CEO and co-founder",
-    "https://postman.com/company/about-postman/",
-)
+def test_verify_team_member_rejects_wrong_role():
+    pages = create_test_pages()
 
-fake_leader = verify_team_member(
-    pages,
-    "Abhinav Asthana",
-    "Chief Financial Officer",
-    "https://postman.com/company/about-postman/",
-)
+    result = verify_team_member(
+        pages,
+        "Abhinav Sharma",
+        "Chief Financial Officer",
+        "https://example.com/about",
+    )
 
-print(f"Real leader verified: {real_leader}")
-print(f"Fake leader verified: {fake_leader}")
+    assert result is False
+
+
+def test_verify_team_member_rejects_unknown_person():
+    pages = create_test_pages()
+
+    result = verify_team_member(
+        pages,
+        "John Doe",
+        "Chief Executive Officer",
+        "https://example.com/about",
+    )
+
+    assert result is False

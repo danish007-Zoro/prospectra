@@ -1,0 +1,7 @@
+beautifulsoup4
+ddgs
+openai
+playwright
+pydantic
+python-dotenv
+pytest

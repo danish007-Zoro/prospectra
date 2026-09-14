@@ -7,6 +7,7 @@ from src.schemas import CompanyIntelligence
 from src.browser import BrowserManager
 from src.context_builder import build_context
 from src.scraper import scrape_relevant_pages
+from src.navigation import run_navigation_loop
 
 
 load_dotenv()
@@ -75,16 +76,21 @@ def process_company(
     domain: str,
 ) -> tuple[CompanyIntelligence, list, object]:
     """
-    Scrape a company website and extract structured intelligence.
+    Autonomously navigate a company website and extract
+    structured intelligence from the collected evidence.
     """
 
-    pages = scrape_relevant_pages(
+    navigation_state = run_navigation_loop(
         manager,
         domain,
     )
 
+    pages = navigation_state.pages
+
     context = build_context(pages)
 
-    intelligence, usage = extract_company_intelligence(context)
+    intelligence, usage = extract_company_intelligence(
+        context
+    )
 
-    return intelligence, pages, usage
+    return intelligence, pages, usage, navigation_state.navigation_usage

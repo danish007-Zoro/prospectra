@@ -1,23 +1,49 @@
+from unittest.mock import patch
+
 from src.agent import run_agent
+from src.schemas import CompanyIntelligence
 
 
-DOMAINS = [
-    "https://postman.com",
-    "https://this-domain-definitely-does-not-exist-123456789.com",
-    "https://vapi.ai",
-]
+def test_one_company_failure_does_not_stop_other_companies():
+    successful_intelligence = CompanyIntelligence(
+        company_overview="A test company that provides software.",
+        target_audience="Software developers.",
+        contact_points=[],
+        key_leadership=[],
+        confidence_score=0.8,
+    )
 
+    def fake_process_company(manager, domain):
+        if "bad-domain" in domain:
+            raise RuntimeError("Simulated scraping failure")
 
-results = run_agent(DOMAINS)
+        return (
+            successful_intelligence,
+            [],
+            type(
+                "Usage",
+                (),
+                {
+                    "prompt_tokens": 100,
+                    "completion_tokens": 50,
+                },
+            )(),
+            [],
+        )
 
-print("\n" + "=" * 60)
-print("FINAL RESULTS")
-print("=" * 60)
+    with patch(
+        "src.agent.process_company",
+        side_effect=fake_process_company,
+    ):
+        results = run_agent(
+            [
+                "https://bad-domain.com",
+                "https://good-domain.com",
+            ]
+        )
 
-for domain, result in results.items():
-    print(f"\n{domain}")
+    assert results["https://bad-domain.com"].status == "failed"
+    assert results["https://bad-domain.com"].error is not None
 
-    if isinstance(result, dict) and "error" in result:
-        print(f"ERROR: {result['error']}")
-    else:
-        print(result.model_dump_json(indent=2))
+    assert results["https://good-domain.com"].status == "success"
+    assert results["https://good-domain.com"].intelligence is not None

@@ -1,24 +1,29 @@
-from src.browser import BrowserManager
-from src.scraper import scrape_relevant_pages
 from src.context_builder import build_context
+from src.scraper import PageEvidence
 
 
-manager = BrowserManager()
+def test_context_respects_character_limit():
+    pages = [
+        PageEvidence(
+            url="https://example.com/about",
+            content="A" * 10000,
+            page_type="about",
+        ),
+        PageEvidence(
+            url="https://example.com/contact",
+            content="B" * 10000,
+            page_type="contact",
+        ),
+        PageEvidence(
+            url="https://example.com/team",
+            content="C" * 10000,
+            page_type="team",
+        ),
+    ]
 
-try:
-    manager.start()
-
-    pages = scrape_relevant_pages(
-        manager,
-        "https://postman.com",
+    context = build_context(
+        pages,
+        max_chars=30000,
     )
 
-    context = build_context(pages)
-
-    print(f"Pages scraped: {len(pages)}")
-    print(f"Context characters: {len(context)}")
-    print("\n" + "=" * 80)
-    print(context[:5000])
-
-finally:
-    manager.close()
+    assert len(context) <= 30000
