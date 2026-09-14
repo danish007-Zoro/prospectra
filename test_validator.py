@@ -94,3 +94,19 @@ def test_verify_team_member_rejects_unknown_person():
     )
 
     assert result is False
+
+def test_verify_team_member_handles_role_formatting():
+    pages = [
+        PageEvidence(
+            url="https://example.com/about",
+            content="Abhinav Asthana\nCEO & co-founder",
+            page_type="about",
+        )
+    ]
+
+    assert verify_team_member(
+        pages,
+        "Abhinav Asthana",
+        "CEO and co-founder",
+        "https://example.com/about",
+    )

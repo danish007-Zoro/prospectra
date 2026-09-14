@@ -60,7 +60,10 @@ def search_linkedin(
 
             evidence = f"{title} {snippet}"
 
-            if all(part in evidence for part in name_parts):
+            if (
+                all(part in evidence for part in name_parts)
+                and linkedin_url_matches_name(url, name)
+            ):
                 return url
 
     except Exception as exc:
@@ -101,3 +104,19 @@ def is_valid_linkedin_url(url: str | None) -> bool:
         return False
 
     return "linkedin.com/in/" in url.lower()
+
+def linkedin_url_matches_name(url: str, name: str) -> bool:
+    """
+    Check whether the LinkedIn profile URL is consistent
+    with the requested person's name.
+    """
+
+    path = urlparse(url).path.lower().strip("/")
+    slug = path.removeprefix("in/").replace("-", "")
+
+    name_parts = name.lower().split()
+
+    return all(
+        part in slug
+        for part in name_parts
+    )

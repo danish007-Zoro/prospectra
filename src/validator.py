@@ -1,5 +1,6 @@
 from src.scraper import PageEvidence
 from src.schemas import CompanyIntelligence
+import re
 
 
 def validate_contact_points(
@@ -114,6 +115,21 @@ def validate_intelligence(
         unverified_members,
     )
 
+def normalize_text(text: str) -> str:
+    """
+    Normalize text so harmless formatting differences
+    do not prevent evidence matching.
+    """
+
+    text = text.lower()
+    text = text.replace("&", "and")
+    text = text.replace("-", "-")
+    text = text.replace("–", "-")
+    text = text.replace("—", "-")
+    text = re.sub(r"\s+", " ", text)
+
+    return text.strip()
+
 
 def verify_team_member(
     pages: list[PageEvidence],
@@ -133,10 +149,10 @@ def verify_team_member(
     if page is None:
         return False
 
-    content = page.content.lower()
+    content = normalize_text(page.content)
 
-    name_found = name.lower() in content
-    role_found = role.lower() in content
+    name_found = normalize_text(name) in content
+    role_found = normalize_text(role) in content
 
     return name_found and role_found
 
