@@ -228,7 +228,7 @@ This makes the pipeline's LLM usage measurable.
 ## Project Structure
 
 ```text
-software-brio-ai-agent/
+prospectra//
 │
 ├── src/
 │   ├── agent.py
@@ -281,8 +281,8 @@ The `*_check.py` files are manual/integration checks and are intentionally separ
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd software-brio-ai-agent
+git clone https://github.com/danish007-Zoro/prospectra.git
+cd prospectra
 ```
 
 ### 2. Create a virtual environment
