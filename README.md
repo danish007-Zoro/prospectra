@@ -207,7 +207,7 @@ A failed page is isolated from the navigation loop, while a failed company is is
 
 As a bonus capability, leadership members without a LinkedIn URL can be enriched using an external search query.
 
-The search is restricted to LinkedIn profile URLs and validates returned search evidence against the person's name before accepting a result.
+The search is restricted to LinkedIn profile URLs and validates both the returned search evidence and the profile URL's consistency with the person's name before accepting a result. This helps prevent search-engine false positives from being added to the final intelligence.
 
 ## Cost Tracking
 
@@ -253,6 +253,7 @@ prospectra//
 ├── test_context.py
 ├── test_cost_tracker.py
 ├── test_errors.py
+├── test_linkedin.py
 ├── test_navigation.py
 ├── test_result.py
 ├── test_schema.py
