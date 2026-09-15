@@ -353,7 +353,7 @@ The automated test suite is intentionally designed to run without making externa
 The current test suite contains **41 automated tests, all passing**.
 
 ```text
-37 passed
+41 passed
 ```
 
 Run the test suite with:
