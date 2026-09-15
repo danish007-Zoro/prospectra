@@ -3,45 +3,45 @@
     "domain": "https://postman.com",
     "status": "success",
     "intelligence": {
-      "company_overview": "Postman is an API platform for building and using APIs. Postman simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.",
-      "target_audience": "Developers and organizations building, testing, and managing APIs.",
+      "company_overview": "Postman is an API platform that simplifies the API lifecycle, enabling developers to build, test, manage, and distribute APIs. It powers the development of over 500,000 companies worldwide and supports enterprise‑scale collaboration.",
+      "target_audience": "Engineers and enterprises building, testing, and managing APIs.",
       "contact_points": [
         {
           "email": "info@postman.com",
-          "source_url": "https://postman.com/company/about-postman/"
+          "source_url": "https://postman.com/company/contact-us/"
         },
         {
           "email": "info-jp@postman.com",
-          "source_url": "https://postman.com/company/about-postman/"
+          "source_url": "https://postman.com/company/contact-us/"
         }
       ],
       "key_leadership": [
         {
           "name": "Abhinav Asthana",
-          "role": "CEO & co-founder",
+          "role": "CEO and co‑founder",
           "linkedin_url": "https://www.linkedin.com/in/abhinavasthana",
           "source_url": "https://postman.com/company/about-postman/"
         },
         {
           "name": "Ankit Sobti",
-          "role": "co-founder",
-          "linkedin_url": "https://www.linkedin.com/in/ankit-sobti/",
+          "role": "Co‑founder",
+          "linkedin_url": "https://www.linkedin.com/in/ankit-sobti",
           "source_url": "https://postman.com/company/about-postman/"
         },
         {
           "name": "Abhijit Kane",
-          "role": "co-founder",
-          "linkedin_url": "https://www.linkedin.com/in/abhinavasthana/",
+          "role": "Co‑founder",
+          "linkedin_url": null,
           "source_url": "https://postman.com/company/about-postman/"
         }
       ],
-      "confidence_score": 0.88
+      "confidence_score": 0.78
     },
     "usage": {
-      "input_tokens": 5722,
-      "output_tokens": 2434,
-      "total_tokens": 8156,
-      "estimated_cost_usd": 0.001159
+      "input_tokens": 5368,
+      "output_tokens": 1876,
+      "total_tokens": 7244,
+      "estimated_cost_usd": 0.000965
     },
     "error": null
   },
@@ -49,24 +49,17 @@
     "domain": "https://supabase.com",
     "status": "success",
     "intelligence": {
-      "company_overview": "Supabase is an open‑source, Postgres‑based developer platform that provides authentication, realtime, storage, RESTful APIs, and edge functions. It is built by developers for developers and is available for self‑hosting or through a managed subscription.",
-      "target_audience": "Developers, startups, and enterprises building SaaS, AI, and web or mobile applications that need scalable backend infrastructure.",
+      "company_overview": "Supabase is an open‑source developer platform that provides managed PostgreSQL databases, authentication, real‑time, storage, and edge functions. It empowers startups, enterprises, and AI builders to rapidly prototype and scale applications without managing infrastructure.",
+      "target_audience": "Supabase targets developers, startups, enterprises, and innovation teams building data‑centric and AI‑powered applications on Postgres.",
       "contact_points": [],
-      "key_leadership": [
-        {
-          "name": "Tracy Lane",
-          "role": "General Counsel of Supabase, Inc.",
-          "linkedin_url": "https://www.linkedin.com/in/tracy-lane-5baa7023",
-          "source_url": "https://supabase.com/contact-us"
-        }
-      ],
-      "confidence_score": 0.75
+      "key_leadership": [],
+      "confidence_score": 0.6
     },
     "usage": {
-      "input_tokens": 12727,
-      "output_tokens": 2188,
-      "total_tokens": 14915,
-      "estimated_cost_usd": 0.001611
+      "input_tokens": 14446,
+      "output_tokens": 4267,
+      "total_tokens": 18713,
+      "estimated_cost_usd": 0.002364
     },
     "error": null
   },
@@ -74,24 +67,24 @@
     "domain": "https://vapi.ai",
     "status": "success",
     "intelligence": {
-      "company_overview": "Vapi offers an enterprise‑grade platform that lets developers build, deploy, and manage voice agents at scale. It provides orchestration, real‑time monitoring, and compliance features for Fortune 100 and other organizations.",
-      "target_audience": "Small to large enterprises and organizations that need scalable, compliant voice agent solutions for customer support and interaction.",
+      "company_overview": "Vapi offers a unified platform for building, deploying, and improving voice agents at scale, enabling organizations to create conversational experiences for their customers. It provides orchestration, real-time monitoring, and enterprise-grade configurability to support millions of calls with low latency.",
+      "target_audience": "Small businesses to global enterprises that need a scalable, secure voice agent platform for customer support, sales, and engagement.",
       "contact_points": [],
       "key_leadership": [
         {
           "name": "Jason Mitura",
           "role": "VP of Software Development",
-          "linkedin_url": "https://www.linkedin.com/in/jasonmitura/",
+          "linkedin_url": null,
           "source_url": "https://vapi.ai"
         }
       ],
-      "confidence_score": 0.8
+      "confidence_score": 0.75
     },
     "usage": {
-      "input_tokens": 9650,
-      "output_tokens": 2540,
-      "total_tokens": 12190,
-      "estimated_cost_usd": 0.001486
+      "input_tokens": 11104,
+      "output_tokens": 3049,
+      "total_tokens": 14153,
+      "estimated_cost_usd": 0.001747
     },
     "error": null
   }
