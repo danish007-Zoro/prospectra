@@ -228,7 +228,7 @@ This makes the pipeline's LLM usage measurable.
 ## Project Structure
 
 ```text
-prospectra//
+prospectra/
 │
 ├── src/
 │   ├── agent.py
@@ -244,6 +244,7 @@ prospectra//
 │   ├── main.py
 │   ├── navigation.py
 │   ├── schemas.py
+│   ├── validator.py
 │   └── scraper.py
 │
 ├── output/
